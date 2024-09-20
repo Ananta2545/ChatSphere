@@ -23,18 +23,24 @@ Welcome to **ChatSphere**! 🎉 This is a real-time chat application built using
 
 Here's a sneak peek of **ChatSphere** in action:
 
-![ChatSphere Home Page](path_to_image) <!-- Replace with the actual path to the image -->
-> **Figure 1:** Home Page of ChatSphere
+![ChatSphere Chat Page](chat.jpeg) <!-- Replace with the actual path to the image -->
+> **Figure 1:** Chat Page of ChatSphere
 
-![Real-time Chat](path_to_image) <!-- Replace with the actual path to the image -->
-> **Figure 2:** Real-time Chat in Progress
+![ChatSphere login Page](login.jpeg) <!-- Replace with the actual path to the image -->
+> **Figure 2:** Login Page of ChatSphere
+
+![ChatSphere register Page](register.jpeg) <!-- Replace with the actual path to the image -->
+> **Figure 3:** Register Page of ChatSphere
+
 
 ## 🎥 Demo Video
 
 Check out a video demo of **ChatSphere** below:
 
-[![Watch the video](path_to_thumbnail)](path_to_video) <!-- Add a thumbnail and link it to your demo video -->
-> **Demo Video**: Click the thumbnail to watch the ChatSphere in action!
+# ChatSphere
+
+**Demo Video**: [Watch the ChatSphere in action!](chatsphere.mp4)
+
 
 > **Note**: Currently, ChatSphere is not deployed online yet. 🚧 However, you can run it locally by following the instructions below.
 
