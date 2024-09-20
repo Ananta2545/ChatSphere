@@ -1,0 +1,128 @@
+/* For the .brand class */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.brand img {
+    height: 5rem;
+}
+
+.brand h1 {
+    color: white;
+    text-transform: uppercase;
+}
+
+/* For the .form class */
+.form {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    background-color: #131324;
+}
+
+/* For the form element */
+.form-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #00000076;
+    border-radius: 2rem;
+    padding: 2rem 5rem;
+}
+
+.form-main input {
+    background-color: transparent;
+    padding: 1rem;
+    border: 0.1rem solid #4e0eff;
+    border-radius: 0.4rem;
+    color: white;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.form-main input:focus {
+    border: 0.1rem solid #997af0;
+    outline: none;
+}
+
+.form-main button {
+    background-color: #997af0;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(78, 14, 255, 0.3);
+}
+
+.form-main button:hover {
+    background-color: #4e0eff;
+    transform: scale(1.05);
+}
+
+.form-main span {
+    color: white;
+    text-transform: uppercase;
+}
+
+.form-main span a {
+    color: #4e0eff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* For password strength */
+.password-strength {
+    color: #e3e3e3;
+    font-size: 1rem;
+    margin-top: 0.5rem; /* Adjust margin to position it properly below the input */
+    text-align: right; /* Aligns the strength text to the right */
+}
+
+/* Strength colors based on strength */
+.password-strength.Strong {
+    color: green;
+}
+
+.password-strength.Medium {
+    color: orange;
+}
+
+.password-strength.Weak {
+    color: red;
+}
+
+/* For password container */
+.password-container {
+    position: relative;
+    width: 100%; /* Ensure it takes the full width of the form */
+}
+
+.password-container input {
+    padding-right: 2.5rem; /* Space for the eye icon */
+    width: 100%; /* Ensure the input stretches the full width */
+}
+
+.password-container span {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+}
+
+.password-container span:hover {
+    color: #4e0eff;
+}

@@ -1,0 +1,75 @@
+.container {
+    background-color: #131324;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    
+}
+.title-container h1{
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+.avatars{
+    display: flex;
+    gap: 2rem;
+}
+
+.Avatar img{
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.Avatar{
+    border: 0.4rem solid transparent;
+    padding: 0.4rem;
+    border-radius: 50%;
+    transition: border-color 0.5s ease-in-out, transform 0.3s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected{
+    border: 0.4rem solid #4e0eff;
+    border-radius: 50%;
+}
+
+.Avatar.selected{
+    border-color: #4e0eff;
+    transform: scale(1.1);
+}
+
+.submit-btn{
+    background-color: #997af0;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    box-shadow: 0 4px 15px rgba(78, 14, 255, 0.3); /* Slight shadow for pop */
+    &:hover{
+        background-color: #4e0eff;
+        transform: scale(1.05); /* Slight zoom on hover */
+    }
+}
+
+
+
+
+
+
+
+
+

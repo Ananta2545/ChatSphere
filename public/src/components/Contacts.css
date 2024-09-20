@@ -1,0 +1,123 @@
+/* Container for the contact section */
+.main-container-contact {
+    display: grid;
+    grid-template-rows: 10% 75% 15%;
+    overflow: hidden;
+    /* background-color: #080420; Deep dark background for contrast */
+}
+
+/* Branding section with logo and title */
+.contact-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    background-color: #1e1e2f; /* Dark background for branding */
+    padding: 1rem;
+    border-bottom: 2px solid #ffffff40; /* Light border for separation */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.contact-brand:hover {
+    background-color: #2b2b3d; /* Slightly lighter background on hover */
+}
+
+/* Logo styling */
+.contact-brand img {
+    height: 2rem; /* Adjusted size for better fit */
+}
+
+/* Title styling */
+.contact-brand h3 {
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.5rem; /* Increased font size for emphasis */
+    font-weight: 500; /* Medium weight for better readability */
+}
+
+/* Contacts list container */
+.contacts {
+    padding: 1rem;
+    background: #1c1c2e; /* Dark background for the contacts section */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    gap: 0.8rem;
+}
+
+/* Customize scrollbar */
+.contacts::-webkit-scrollbar {
+    width: 0.4rem; /* Slightly wider scrollbar */
+}
+
+.contacts::-webkit-scrollbar-thumb {
+    background-color: #ffffff39; /* Semi-transparent scrollbar thumb */
+    border-radius: 1rem; /* Rounded scrollbar thumb */
+}
+
+/* Individual contact styling */
+.contact {
+    background-color: #ffffff1f; /* Slightly transparent background */
+    min-height: 5rem;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 0.5rem; /* Rounded corners */
+    padding: 0.8rem; /* Increased padding for better spacing */
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    transition: background 0.3s ease, box-shadow 0.3s ease; 
+}
+
+/* Highlight the selected contact */
+.contact.Selected {
+    background-color: #9a86f3;
+}
+
+/* Avatar styling */
+.avatar-contact img {
+    height: 3rem;
+    width: 3rem; /* Consistent width with height */
+    border-radius: 50%; /* Circular avatar */
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.contact:hover .avatar-contact img {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Username styling */
+.username-contact h3 {
+    font-size: 1rem; /* Adjusted font size */
+    font-weight: 400;
+    color: #f0f0f0; /* Light color for better contrast */
+}
+
+/* Current user section styling */
+.current-user-contact {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-top: 2px solid #ffffff40; /* Light border for separation */
+     background: #1e1e2f;  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+}
+
+/* Current user avatar styling */
+.current-user-contact .avatar-contact img {
+    height: 4rem;
+    width: 4rem; /* Consistent size */
+    border-radius: 50%; /* Circular avatar */
+}
+
+/* Current user name styling */
+.current-user-contact .username-contact h1 {
+    font-size: 1.5rem; /* Adjusted font size */
+    font-weight: 500;
+    margin-left: 1rem;
+    color: #f0f0f0; /* Light color for contrast */
+}
+
+/* Hover effect for contacts */
+
