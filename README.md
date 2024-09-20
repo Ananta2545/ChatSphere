@@ -32,14 +32,10 @@ Here's a sneak peek of **ChatSphere** in action:
 ![ChatSphere register Page](register.jpeg) <!-- Replace with the actual path to the image -->
 > **Figure 3:** Register Page of ChatSphere
 
-
-## 🎥 Demo Video
-
-Check out a video demo of **ChatSphere** below:
-
 # ChatSphere
 
-**Demo Video**: [Watch the ChatSphere in action!](chatsphere.mp4)
+**Demo Video**: [Watch the ChatSphere in action!](https://drive.google.com/file/d/1xGOLNuuNyp9Ex8wu3JwdSWaTYccq8-DB/view?usp=sharing)
+
 
 
 > **Note**: Currently, ChatSphere is not deployed online yet. 🚧 However, you can run it locally by following the instructions below.
