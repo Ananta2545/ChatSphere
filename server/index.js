@@ -41,9 +41,22 @@ const server = app.listen(process.env.PORT, ()=>{
 // here the socket is connected with the server 
 const io = socket(server,{
     cors:{// cors is used to connect to the frontend because here the frontend is hosted in 3000 port
-        origin:"http://localhost:3000",
+        origin:"https://project-4-chat-sphere-frontend.vercel.app",
         credentials: true,
     },
+});
+app.get('/', (req, res) => {
+    res.redirect('https://project-4-chat-sphere-frontend.vercel.app/register'); // Update this URL if needed
+});
+
+const path = require('path');
+
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, 'public/build')));
+
+// The "catchall" handler: for any request that doesn't match one above, send back index.html.
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/build', 'index.html'));
 });
 
 global.onlineUsers = new Map();// keeps tract of connected users and there corresponding socket Id
