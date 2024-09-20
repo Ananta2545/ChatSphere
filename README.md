@@ -62,21 +62,23 @@ Follow these instructions to get a copy of **ChatSphere** up and running on your
    cd public
    npm install
    ```
-4. ⚙️ Running the Application
-  a) Backend (Express + Socket.io):
+4. ⚙️ Running the Application<br/>
+  a) Backend (Express + Socket.io):<br/>
          ```
          cd server
          nodemon index.js
-         ```
-  b) Frontend (React):
+         ```<br/>
+  b) Frontend (React):<br/>
          ```
          cd public
          yarn start
-         ```
-  c) Open your browser and navigate to:
+         ```<br/>
+  c) Open your browser and navigate to:<br/>
+         If you have port:- 3000 then go through the below link<br/>
          ```
          http://localhost:3000
-         ```
+         ```<br/>
+         If you are deploying frontend on another port then use that **PORT** instead of 3000
 
 ## 🌍 Environment Variables:-
 To run this project, you will need to add the following environment variables in a .env file in the server directory:
