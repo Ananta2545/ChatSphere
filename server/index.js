@@ -32,16 +32,16 @@ mongoose.connect(process.env.MONGO_URL,{
 app.use('/api/auth', userRoutes);
 app.use('/api/messages', messageRoutes);
 
-
+const PORT = process.env.PORT || 5000;
 //starting the server -- here process.env is used to read the port information from the environment
-const server = app.listen(process.env.PORT, ()=>{
+const server = app.listen(PORT, ()=>{
     console.log(`Server Started on Port : ${process.env.PORT}`)
 })
 
 // here the socket is connected with the server 
 const io = socket(server,{
     cors:{// cors is used to connect to the frontend because here the frontend is hosted in 3000 port
-        origin:"https://project-4-chat-sphere-frontend.vercel.app",
+        origin:"http://localhost:3000",
         credentials: true,
     },
 });
