@@ -49,6 +49,10 @@ const io = socket(server, {
     },
 });
 
+app.get('/', (req, res) => {
+    res.send('Backend is running successfully.');
+});
+
 // Handling socket connection and messaging
 global.onlineUsers = new Map();
 io.on("connection", (socket) => {
