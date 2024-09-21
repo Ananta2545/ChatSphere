@@ -1,82 +1,69 @@
-const express  = require('express');
+const express = require('express');
 const cors = require("cors");
 const mongoose = require('mongoose');
 const userRoutes = require("./routes/userRoutes");
-const messageRoutes = require("./routes/messagesRoutes")
-const user = require("./model/userModel")
-// const bcrypt = require("bcrypt");// for hashing the passwords used for encryption
+const messageRoutes = require("./routes/messagesRoutes");
+const socket = require("socket.io");
+require("dotenv").config();
+const path = require('path'); // Added for serving static files
+
 const app = express();
 
-// we are importing socket from socket.io
-const socket = require("socket.io")
-
-
-require("dotenv").config();
-
-//using cors and express.json
-app.use(cors({// this cors is for express here we are giving all the permissions for the website.
-    origin: '*',  // we allowing all the origin to request
+// CORS configuration (Update once frontend is live)
+app.use(cors({
+    origin: '*', // Allow all origins for now. Update this when frontend is deployed.
 }));
 app.use(express.json());
-// app.use("/api/auth", userRoutes);
 
-//connecting to mongoose server
-mongoose.connect(process.env.MONGO_URL,{
-    
-}).then(()=>{
-    console.log("DB Connection successfully");
-}).catch((err)=>{
+// Mongoose connection
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(() => {
+    console.log("DB Connection successful");
+}).catch((err) => {
     console.log(err.message);
 });
 
+// API Routes
 app.use('/api/auth', userRoutes);
 app.use('/api/messages', messageRoutes);
 
-const PORT = process.env.PORT || 5000;
-//starting the server -- here process.env is used to read the port information from the environment
-const server = app.listen(PORT, ()=>{
-    console.log(`Server Started on Port : ${process.env.PORT}`)
-})
-
-// here the socket is connected with the server 
-const io = socket(server,{
-    cors:{// cors is used to connect to the frontend because here the frontend is hosted in 3000 port
-        origin:"http://localhost:3000",
-        credentials: true,
-    },
-});
-app.get('/', (req, res) => {
-    res.redirect('https://project-4-chat-sphere-frontend.vercel.app/register'); // Update this URL if needed
-});
-
-const path = require('path');
-
-// Serve static files from the React frontend app
+// Serve static files when deployed (Remove this section if you are not bundling frontend with backend)
 app.use(express.static(path.join(__dirname, 'public/build')));
-
-// The "catchall" handler: for any request that doesn't match one above, send back index.html.
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/build', 'index.html'));
 });
 
-global.onlineUsers = new Map();// keeps tract of connected users and there corresponding socket Id
-// map produced an efficient way to store and retrieve data -- global.onlineUsers full small code is here inside the globalMap folder follow from there
+// PORT setup for Render deployment
+const PORT = process.env.PORT || 5000;
+const server = app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
+});
 
-// how connections are handle --> when a user connects a connection
-io.on("connection", (socket)=>{// whenever a new user connected to the socketio server this event is triggered
+// Socket.IO setup with CORS handling
+const io = socket(server, {
+    cors: {
+        origin: "*", // Allow all origins. Update with frontend live URL later.
+        credentials: true,
+    },
+});
+
+// Handling socket connection and messaging
+global.onlineUsers = new Map();
+io.on("connection", (socket) => {
     global.chatSocket = socket;
 
-    // Handling user addition
-    socket.on("add-user",(userId)=>{// userId received from the client is used as a key and socketId is stored as the value in the online Users map
-        onlineUsers.set(userId, socket.id);// If User1 has a userId = 123 and socket.id = abc123, it stores this like:
-        // onlineUsers = {123: 'abc123'}.
+    // Add user to online users
+    socket.on("add-user", (userId) => {
+        onlineUsers.set(userId, socket.id);
     });
 
-    // handling message sending
-    socket.on("send-msg", (data)=>{// when a client emits send-msg it sends a message to another user
-        const sendUserSocket = onlineUsers.get(data.to);// here the data.to has the to:- recepients userId and the message is the actual message being sent.
-        if(sendUserSocket){// in the onlineUsers map the server finds the recepient socket id if it founds then it emit the msg-receive event delivering the message
+    // Handle message sending
+    socket.on("send-msg", (data) => {
+        const sendUserSocket = onlineUsers.get(data.to);
+        if (sendUserSocket) {
             socket.to(sendUserSocket).emit("msg-receive", data.message);
         }
-    })
+    });
 });
