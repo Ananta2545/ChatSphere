@@ -4,16 +4,22 @@ const bcrypt = require("bcrypt");
 module.exports.register = async (req, res, next) => {
     try {
         const { username, email, password } = req.body;
-        
-        // Check if the username or email already exists
-        const userNameCheck = await User.findOne({ username });// checking whether the username is already in the database or
-        if (userNameCheck) {
-            return res.json({ msg: "Username already used", status: false });
+
+        // Check if all fields are provided
+        if (!username || !email || !password) {
+            return res.status(400).json({ msg: "All fields are required", status: false });
         }
 
+        // Check if the username already exists
+        const userNameCheck = await User.findOne({ username });
+        if (userNameCheck) {
+            return res.status(400).json({ msg: "Username already used", status: false });
+        }
+
+        // Check if the email already exists
         const emailCheck = await User.findOne({ email });
         if (emailCheck) {
-            return res.json({ msg: "Email already used", status: false });
+            return res.status(400).json({ msg: "Email already used", status: false });
         }
 
         // Hash the password
@@ -26,14 +32,14 @@ module.exports.register = async (req, res, next) => {
             password: hashedPassword, // Store hashed password in the password field
         });
 
-        // Remove password from the response object
-        // delete user.password; // This line is unnecessary
-
-        return res.json({ status: true, user });
+        // Return the user without the password
+        return res.status(201).json({ status: true, user: { ...user._doc, password: undefined } });
     } catch (err) {
-        next(err);
+        console.error("Registration error:", err); // Log the error for debugging
+        return res.status(500).json({ msg: "Internal server error", status: false });
     }
 };
+
 
 module.exports.login = async (req, res, next) => {
     try {
