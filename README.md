@@ -8,6 +8,10 @@ Welcome to **ChatSphere**! 🎉 This is a real-time chat application built using
 - 🧑‍💻 **User Authentication**: Includes **Register** and **Login** functionality to manage users.
 - 🖼️ **Set Avatar**: Users can personalize their profile by setting a unique avatar during registration.
 - 🔒 **Logout Feature**: Easily log out when you're done chatting, ensuring your account is secure.
+
+
+
+
 - 🛠️ **Scalable Backend**: Powered by Node.js and Express for fast, scalable service.
 - 📱 **Responsive Design**: Seamless chat experience across all devices.
 
@@ -23,19 +27,20 @@ Welcome to **ChatSphere**! 🎉 This is a real-time chat application built using
 
 Here's a sneak peek of **ChatSphere** in action:
 
-![ChatSphere Chat Page](chat.jpeg) <!-- Replace with the actual path to the image -->
+![ChatSphere Chat Page](chat.jpeg)
 > **Figure 1:** Chat Page of ChatSphere
 
-![ChatSphere login Page](login.jpeg) <!-- Replace with the actual path to the image -->
+![ChatSphere login Page](login.jpeg)
 > **Figure 2:** Login Page of ChatSphere
 
-![ChatSphere register Page](register.jpeg) <!-- Replace with the actual path to the image -->
+![ChatSphere register Page](register.jpeg)
 > **Figure 3:** Register Page of ChatSphere
 
 # ChatSphere
 
-**Demo Video**: [Watch the ChatSphere in action!](https://drive.google.com/file/d/1xGOLNuuNyp9Ex8wu3JwdSWaTYccq8-DB/view?usp=sharing)
+**Demo Video**:
 
+https://github.com/user-attachments/assets/f67eb645-2bf9-4060-9211-f38e4be0a509
 
 
 > **Note**: Currently, ChatSphere is not deployed online yet. 🚧 However, you can run it locally by following the instructions below.
