@@ -5,7 +5,6 @@ const userRoutes = require("./routes/userRoutes");
 const messageRoutes = require("./routes/messagesRoutes");
 const socket = require("socket.io");
 require("dotenv").config();
-const path = require('path'); // Added for serving static files
 
 const app = express();
 
@@ -29,11 +28,7 @@ mongoose.connect(process.env.MONGO_URL, {
 app.use('/api/auth', userRoutes);
 app.use('/api/messages', messageRoutes);
 
-// Serve static files when deployed (Remove this section if you are not bundling frontend with backend)
-app.use(express.static(path.join(__dirname, 'public/build')));
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/build', 'index.html'));
-});
+
 
 // PORT setup for Render deployment
 const PORT = process.env.PORT || 5000;
