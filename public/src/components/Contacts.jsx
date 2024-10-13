@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Logo from '../assets/logo.svg';
 import './Contacts.css';
 
-const Contacts = ({ contacts, currentUser, changeChat }) => {
+const Contacts = ({ contacts=[], currentUser, changeChat }) => {
   const [currentUserName, setCurrentUserName] = useState(undefined);// hook to save currentUserName
   const [currentUserImage, setCurrentUserImage] = useState(undefined);// for Current user image
   const [currentSelected, setCurrentSelected] = useState(undefined);// which chat is selected it is for that
 
   // if there is currentUser then set avatarImage and username
   useEffect(() => {
+    console.log('contacts : ',contacts);
     if (currentUser) {
       setCurrentUserImage(currentUser.avatarImage);
       setCurrentUserName(currentUser.username);
