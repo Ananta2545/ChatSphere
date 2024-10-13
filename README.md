@@ -42,8 +42,7 @@ Here's a sneak peek of **ChatSphere** in action:
 
 https://github.com/user-attachments/assets/f67eb645-2bf9-4060-9211-f38e4be0a509
 
-
-> **Note**: Currently, ChatSphere is not deployed online yet. 🚧 However, you can run it locally by following the instructions below.
+Check live:- https://chat-sphere-silk.vercel.app/
 
 ## 🚀 Getting Started
 
