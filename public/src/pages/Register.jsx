@@ -81,7 +81,7 @@ function Register() {
     if (handleValidation()) {// if the handle validation is true 
       console.log("Invalidation", registerRoute);
       const { password, username, email } = values;
-      try {
+        try {
         const { data } = await axios.post(registerRoute, {// sends a post request to backend defined in the register route with the form data
           username,
           email,

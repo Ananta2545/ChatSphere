@@ -10,7 +10,9 @@ const app = express();
 
 // CORS configuration (Update once frontend is live)
 app.use(cors({
-    origin: '*', // Allow all origins for now. Update this when frontend is deployed.
+    origin: ['https://chat-sphere-52sf.vercel.app/'], // Allow all origins for now. Update this when frontend is deployed.
+    methods: ['GET','POST','PUT', 'DELETE'],
+    credentials: true,
 }));
 app.use(express.json());
 
@@ -39,7 +41,7 @@ const server = app.listen(PORT, () => {
 // Socket.IO setup with CORS handling
 const io = socket(server, {
     cors: {
-        origin: "*", // Allow all origins. Update with frontend live URL later.
+        origin: ['https://chat-sphere-52sf.vercel.app/'], // Allow all origins. Update with frontend live URL later.
         credentials: true,
     },
 });
