@@ -10,19 +10,14 @@ const app = express();
 
 // CORS configuration (Update once frontend is live)
 app.use(cors({
-    origin: ['https://chat-sphere-52sf.vercel.app'], // Allow all origins for now. Update this when frontend is deployed.
-    methods: ['GET','POST','PUT', 'DELETE'],
-    credentials: true,
+    origin: '*', // Allow all origins for now. Update this when frontend is deployed.
 }));
 app.use(express.json());
 
-// Enable preflight for all routes (OPTIONS handling)
-app.options('*', cors());
-
 // Mongoose connection
 mongoose.connect(process.env.MONGO_URL, {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 }).then(() => {
     console.log("DB Connection successful");
 }).catch((err) => {
@@ -44,7 +39,7 @@ const server = app.listen(PORT, () => {
 // Socket.IO setup with CORS handling
 const io = socket(server, {
     cors: {
-        origin: ['https://chat-sphere-52sf.vercel.app/', 'http://localhost:3000'], // Allow all origins. Update with frontend live URL later.
+        origin: "*", // Allow all origins. Update with frontend live URL later.
         credentials: true,
     },
 });
