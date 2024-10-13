@@ -44,7 +44,7 @@ const server = app.listen(PORT, () => {
 // Socket.IO setup with CORS handling
 const io = socket(server, {
     cors: {
-        origin: ['https://chat-sphere-52sf.vercel.app/'], // Allow all origins. Update with frontend live URL later.
+        origin: ['https://chat-sphere-52sf.vercel.app/', 'http://localhost:3000'], // Allow all origins. Update with frontend live URL later.
         credentials: true,
     },
 });
