@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { setAvatarRoute } from '../utils/APIRoutes';
+import multiavatar from '@multiavatar/multiavatar'
 
 function SetAvatar() {
 
@@ -87,8 +88,8 @@ function SetAvatar() {
         for(let i = 0;i<4;i++){
           // add a delay before each request so that there are not multiple request to the api we are using so that it doesnt give any error like too many request 
           await new Promise(resolve=>setTimeout(resolve, 1000));
-          const image = await axios.get(`${api}/${Math.random() * 1000}`);
-          const base64String = btoa(image.data);// the image data is converted into base 64 string and after that it stored in the array of data
+          const image = multiavatar(Math.round(Math.random() * 1000))
+          const base64String = btoa(image);// the image data is converted into base 64 string and after that it stored in the array of data
           console.log(`data:image/svg+xml;base64,${base64String}`);
           data.push(base64String)
         }
