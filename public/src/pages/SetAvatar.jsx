@@ -9,8 +9,6 @@ import { setAvatarRoute } from '../utils/APIRoutes';
 import multiavatar from '@multiavatar/multiavatar'
 
 function SetAvatar() {
-
-  const api = "https://api.multiavatar.com/45678945";// this api link is used to fetch the avatars
   const navigate = useNavigate();
   const [avatars, setAvatars] = useState([]);// this is used to hold the array of avatars
   const [selectedAvatar, setSelectedAvatar] = useState(undefined)// this is used to track which avatar is selected by the user
