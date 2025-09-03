@@ -10,7 +10,7 @@ const app = express();
 
 // CORS configuration (Update once frontend is live)
 app.use(cors({
-    origin: '*', // Allow all origins for now. Update this when frontend is deployed.
+    origin: '*',
 }));
 app.use(express.json());
 
